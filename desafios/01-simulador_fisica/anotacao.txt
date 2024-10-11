@@ -1,0 +1,36 @@
+timer 50 milissegundos
+tempo = 0.05
+
+
+v = v0 + a * t
+x = x0 + xf * t0
+y = y0 + yf * t0
+
+
+
+
+
+yf - y * c  (testar com c = 1)
+c -> coeficiente perda de energia
+
+
+
+//MOLA
+Spring( massa1, massa2, len)            
+len -> tamanho da mola, para saber o quão dura é a mola
+
+mola puxa e empurra
+//FORCA
+F = K * X
+//ACELERACAO
+ac = F/m
+
+
+
+classe pra tudo
+
+
+
+estudar física, aceleração, bib bobo n sei oq n sei oq la
+tudo que vi no curso, olhar as anotações do caderno e ver com a stefany
+
