@@ -3,14 +3,14 @@ tempo = 0.05
 
 
 v = v0 + a * t
-x = x0 + xf * t0
-y = y0 + yf * t0
+x = x0 + Vx * t0
+y = y0 + Vy * t0
 
 
 
 
 
-yf - y * c  (testar com c = 1)
+yf = y * -c  (testar com c = 1)
 c -> coeficiente perda de energia
 
 
@@ -31,6 +31,55 @@ classe pra tudo
 
 
 
-estudar física, aceleração, bib bobo n sei oq n sei oq la
-tudo que vi no curso, olhar as anotações do caderno e ver com a stefany
+F = k * x
+
+força, com a força exercida na mola calcula-se a aceleração de cada uma das massas.
+a1 = F/m
+a2 = F/m
+
+aceleração vetorial que deve ser decomposta para obter coordenadas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10m/s
+
+??m/50ms
+
+10 - 1
+?? - 0.05
+
+0.0005
 
