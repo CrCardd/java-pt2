@@ -6,7 +6,7 @@
             "name": "JavaFX Application",
             "request": "launch",
             "mainClass": "com.desktopapp.App",
-            "vmArgs": "--module-path \"C:\\Users\\disrct\\javafx-sdk-22.0.1\\lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"C:\\Users\\DELL\\javafx-sdk-22.0.1\\lib\" --add-modules javafx.controls,javafx.fxml",
             "projectName": "sample"
         }
     ]

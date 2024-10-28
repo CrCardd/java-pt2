@@ -62,7 +62,6 @@ public class DrawController implements Initializable{
     //Mouse moved
     @FXML
     protected void botafogo(MouseEvent e){
-        var g = cvMain.getGraphicsContext2D();
 
         double width = cvMain.getWidth();
         double height = cvMain.getHeight();
@@ -87,8 +86,10 @@ public class DrawController implements Initializable{
             double initAngle  = currentArc;
             double finalAngle = currentArc + arc; 
 
-            if(angle > initAngle && angle < finalAngle)
+            if(angle > initAngle && angle < finalAngle){
+                System.out.println("TO AQUI ITMAO");
                 selected = i;
+            }
 
             currentArc += arc;
         }
