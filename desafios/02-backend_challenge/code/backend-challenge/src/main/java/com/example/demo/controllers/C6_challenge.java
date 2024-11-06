@@ -26,7 +26,7 @@ public class C6_challenge {
         if(!service.validateName(data.username()))
             return new ResponseEntity<>("Invalid Username", HttpStatus.BAD_REQUEST);
         if(!service.validatePassword(data.password()))
-            return new ResponseEntity<>("Invalid password. It must have a-z, A-Z, 0-9 and be maior than 4", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Invalid password. It must have a-z, A-Z, 0-9 and be maior than 8", HttpStatus.BAD_REQUEST);
 
         UserB new_user = new UserB(data.username(), data.email(), data.password());
         if(service.create(new_user))

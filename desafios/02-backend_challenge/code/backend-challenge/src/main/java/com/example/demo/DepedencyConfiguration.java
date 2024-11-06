@@ -5,8 +5,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.impl.CpfServiceImplementation;
+import com.example.demo.impl.EncoderImplementation;
 import com.example.demo.impl.UserImplementation;
 import com.example.demo.services.CpfService;
+import com.example.demo.services.EncoderService;
 import com.example.demo.services.UserService;
 
 @Configuration
@@ -25,5 +27,11 @@ public class DepedencyConfiguration {
     @Scope("singleton")                     //CRIA UM UNICO OBJETO PARA TODO O PROGRAMA 
     public UserService UserService(){
         return new UserImplementation();
+    }
+
+    @Bean
+    @Scope("singleton")                     //CRIA UM UNICO OBJETO PARA TODO O PROGRAMA 
+    public EncoderService encoderService(){
+        return new EncoderImplementation();
     }
 }

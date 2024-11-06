@@ -1,8 +1,6 @@
 package com.example.demo.impl;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -51,9 +49,7 @@ public class UserImplementation implements UserService{
         if(!list.isEmpty())
             return false;
         
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(mail);
-        if(!matcher.matches())
+        if(!mail.matches(regex))
             return false;
         return true;
     }
