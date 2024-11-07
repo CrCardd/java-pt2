@@ -1,4 +1,4 @@
-package com.example.demo.impl;
+package com.example.demo.services.impl;
 
 import java.util.List;
 
@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.model.UserB;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.services.EncoderService;
 import com.example.demo.services.UserService;
 
 public class UserImplementation implements UserService{
 
     @Autowired
     UserRepository repository;
+    @Autowired
+    EncoderService encoderService;
 
     final private String regex = "^(.+)@(.+).(.+)";
 
@@ -32,11 +35,11 @@ public class UserImplementation implements UserService{
     public Boolean validatePassword(String password) {
         if(password.length() < 8)
             return false;
-        if(!password.chars().anyMatch(c -> c > 'A' && c < 'Z'))
+        if(!password.chars().anyMatch(c -> c >= 'A' && c <= 'Z'))
             return false;
-        if(!password.chars().anyMatch(c -> c > 'a' && c < 'z'))
+        if(!password.chars().anyMatch(c -> c >= 'a' && c <= 'z'))
             return false;
-        if(!password.chars().anyMatch(c -> c > '0' && c < '9'))
+        if(!password.chars().anyMatch(c -> c >= '0' && c <= '9'))
             return false;
         
         return true;
@@ -79,8 +82,10 @@ public class UserImplementation implements UserService{
     
     @Override
     public UserB checkNamePassword(String name, String password) {
-        List<UserB> list = repository.findByNameAndPassword(name, password);
+        List<UserB> list = repository.loginMailOrName(name);
         if(list.isEmpty())
+            return null;
+        if(encoderService.encode(password).equals(list.get(0).getPassword()))
             return null;
         return list.get(0);
     }

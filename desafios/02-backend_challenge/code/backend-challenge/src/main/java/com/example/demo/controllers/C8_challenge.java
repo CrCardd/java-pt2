@@ -14,6 +14,7 @@ import com.example.demo.services.EncoderService;
 import com.example.demo.services.UserService;
 
 
+@RequestMapping("/user")
 @RestController
 public class C8_challenge {
     
@@ -23,14 +24,13 @@ public class C8_challenge {
     @Autowired
     EncoderService encoderService;
     
-    @RequestMapping("/user")
     @PostMapping
     public ResponseEntity<String> postWithSecurity(@RequestBody UserDto data) {
-        if(userService.validateName(data.username()))
+        if(!userService.validateName(data.username()))
             return new ResponseEntity<>("Invalid username!", HttpStatus.BAD_REQUEST);
-        if(userService.validateMail(data.email()))
+        if(!userService.validateMail(data.email()))
             return new ResponseEntity<>("Invalid mail!", HttpStatus.BAD_REQUEST);
-        if(userService.validatePassword(data.password()))
+        if(!userService.validatePassword(data.password()))
             return new ResponseEntity<>("Invalid password!", HttpStatus.BAD_REQUEST);
         
         UserB new_user = new UserB(

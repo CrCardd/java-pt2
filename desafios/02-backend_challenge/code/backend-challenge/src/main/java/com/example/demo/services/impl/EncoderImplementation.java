@@ -1,4 +1,4 @@
-package com.example.demo.impl;
+package com.example.demo.services.impl;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -10,5 +10,10 @@ public class EncoderImplementation implements EncoderService {
     {
         var encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
+    }
+
+    @Override
+    public Boolean validate(String primary_password, String second_password) {
+        return new BCryptPasswordEncoder().matches(primary_password, second_password);
     }
 }
