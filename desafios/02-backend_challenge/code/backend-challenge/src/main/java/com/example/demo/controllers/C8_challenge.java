@@ -30,7 +30,7 @@ public class C8_challenge {
             return new ResponseEntity<>("Invalid username!", HttpStatus.BAD_REQUEST);
         if(!userService.validateMail(data.email()))
             return new ResponseEntity<>("Invalid mail!", HttpStatus.BAD_REQUEST);
-        if(!userService.validatePassword(data.password()))
+        if(userService.validatePassword(data.password()))
             return new ResponseEntity<>("Invalid password!", HttpStatus.BAD_REQUEST);
         
         UserB new_user = new UserB(

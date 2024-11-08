@@ -1,6 +1,7 @@
 package com.example.demo.filters;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,15 +34,18 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         }
 
         var token = jwtService.validate(jwt);
+        
         if (token == null)
         {
             filterChain.doFilter(request, response);
             return;
         }
         
-        var authentication = new UsernamePasswordAuthenticationToken(null, null, null);
+        var authentication = new UsernamePasswordAuthenticationToken(null,null,null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
+        
+        System.out.println(authentication);
+        
         request.setAttribute("token", token);
         filterChain.doFilter(request, response);
     }

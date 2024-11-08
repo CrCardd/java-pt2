@@ -32,10 +32,9 @@ public class JwtImplementation implements JwtService<Token> {
         try
         {
             var map = validateJwt(jwt);
-
+            
             Token token = new Token();
             token.setId(Long.parseLong(map.get("id").toString()));
-            token.setRole(map.get("role").toString());
 
             return token;
         }
