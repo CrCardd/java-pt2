@@ -23,8 +23,10 @@ public class C9_challenge {
 
     @Autowired
     UserAuthService userAuthService;
+
     @Autowired
     JwtService<Token> jwtService;
+    
     @Autowired
     EncoderService encoderService;
     
